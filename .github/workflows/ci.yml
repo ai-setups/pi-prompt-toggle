@@ -1,0 +1,62 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci --ignore-scripts
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Unit tests
+        run: npm test
+
+  # pi ships the packages we import, so the version a user runs is theirs, not
+  # ours. devDependencies pin an old one, which hides breakage until it reaches
+  # users. This job typechecks against the current release to catch it first.
+  # It is scheduled rather than blocking, since it can fail for reasons outside
+  # this repository.
+  upstream:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    if: github.event_name != 'pull_request'
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci --ignore-scripts
+
+      - name: Install the latest pi packages
+        run: npm install --no-save @earendil-works/pi-coding-agent@latest @earendil-works/pi-tui@latest
+
+      - name: Typecheck against latest
+        run: npm run typecheck
