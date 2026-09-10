@@ -40,5 +40,11 @@ jobs:
       - name: Lint, typecheck and test
         run: npm run check
 
+      # NODE_AUTH_TOKEN is only needed until the package exists on npm: a
+      # trusted publisher can only be configured from an existing package's
+      # settings page. Once that is set up, drop the secret and this env block
+      # and OIDC takes over, adding provenance automatically.
       - name: Publish
-        run: npm publish --access public --provenance
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
