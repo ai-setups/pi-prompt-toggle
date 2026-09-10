@@ -1,0 +1,21 @@
+{
+	"$schema": "https://biomejs.dev/schemas/2.3.14/schema.json",
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"recommended": true,
+			"style": {
+				"useConst": "error",
+				"useNodejsImportProtocol": "off"
+			}
+		}
+	},
+	"formatter": {
+		"enabled": true,
+		"indentStyle": "tab",
+		"lineWidth": 120
+	},
+	"files": {
+		"includes": ["extensions/**/*.ts", "src/**/*.ts", "tests/**/*.ts", "*.json", "!package-lock.json"]
+	}
+}

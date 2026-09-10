@@ -1,0 +1,48 @@
+{
+	"name": "pi-prompt-toggle",
+	"version": "0.1.0",
+	"description": "Toggle stackable prompt instructions inside a single pi session",
+	"type": "module",
+	"files": [
+		"extensions/**/*.ts",
+		"src/**/*.ts",
+		"*.md"
+	],
+	"keywords": [
+		"pi-package",
+		"pi",
+		"coding-agent",
+		"extension",
+		"prompt",
+		"system-prompt",
+		"toggle"
+	],
+	"license": "Apache-2.0",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/ai-setups/pi-prompt-toggle.git"
+	},
+	"scripts": {
+		"typecheck": "tsc --noEmit",
+		"lint": "biome check .",
+		"format": "biome check --write .",
+		"test": "node --experimental-strip-types --test tests/*.test.ts",
+		"check": "npm run lint && npm run typecheck && npm test"
+	},
+	"peerDependencies": {
+		"@earendil-works/pi-coding-agent": "*",
+		"@earendil-works/pi-tui": "*"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "2.3.14",
+		"@earendil-works/pi-coding-agent": "^0.85.1",
+		"@earendil-works/pi-tui": "^0.85.1",
+		"@types/node": "24.13.3",
+		"typescript": "5.9.3"
+	},
+	"pi": {
+		"extensions": [
+			"./extensions/prompt-toggle.ts"
+		]
+	}
+}
