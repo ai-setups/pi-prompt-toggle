@@ -13,7 +13,7 @@ export const BUILTIN_TOGGLES: Toggle[] = [
 	{
 		id: "concise",
 		instruction:
-			"Be as brief as possible without losing information or telling me what I already know. Never exceed 5 sentences.",
+			"Be as brief as possible without losing information or telling me what I already know. Never exceed 3 sentences.",
 	},
 	{
 		id: "no-change",
