@@ -1,6 +1,6 @@
 {
 	"name": "pi-prompt-toggle",
-	"version": "0.1.0",
+	"version": "0.2.0",
 	"description": "Toggle stackable prompt instructions inside a single pi session",
 	"type": "module",
 	"files": [
