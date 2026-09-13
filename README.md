@@ -2,6 +2,11 @@ English | [简体中文](README.zh-CN.md)
 
 # pi-prompt-toggle
 
+[![npm](https://img.shields.io/npm/v/pi-prompt-toggle)](https://www.npmjs.com/package/pi-prompt-toggle)
+[![CI](https://img.shields.io/github/actions/workflow/status/ai-setups/pi-prompt-toggle/ci.yml?label=CI)](https://github.com/ai-setups/pi-prompt-toggle/actions/workflows/ci.yml)
+[![downloads](https://img.shields.io/npm/dm/pi-prompt-toggle)](https://www.npmjs.com/package/pi-prompt-toggle)
+[![GitHub](https://img.shields.io/github/license/ai-setups/pi-prompt-toggle)](https://github.com/ai-setups/pi-prompt-toggle)
+
 Toggle stackable prompt instructions inside a single [pi](https://github.com/earendil-works/pi) session.
 
 Agents are often far too verbose! Telling the agent "be as brief as possible without losing information, never exceed 5 sentences" does help.
