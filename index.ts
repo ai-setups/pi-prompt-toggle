@@ -44,7 +44,7 @@ import {
 	parseConfig,
 	preview,
 	type Toggle,
-} from "../src/toggles.ts";
+} from "./src/toggles.ts";
 
 const STATE_ENTRY = "prompt-toggle-state";
 const CONFIG_SUBDIR = "extension-settings";

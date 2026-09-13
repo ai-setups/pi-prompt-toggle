@@ -4,7 +4,7 @@
 	"description": "Toggle stackable prompt instructions inside a single pi session",
 	"type": "module",
 	"files": [
-		"extensions/**/*.ts",
+		"index.ts",
 		"src/**/*.ts",
 		"*.md"
 	],
@@ -42,7 +42,7 @@
 	},
 	"pi": {
 		"extensions": [
-			"./extensions/prompt-toggle.ts"
+			"./index.ts"
 		]
 	}
 }
