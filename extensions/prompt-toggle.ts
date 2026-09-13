@@ -39,6 +39,7 @@ import { Container, type SelectItem, SelectList, Spacer, Text } from "@earendil-
 import {
 	activeInstructions,
 	BUILTIN_TOGGLES,
+	DEFAULT_ENABLED_IDS,
 	mergeToggles,
 	parseConfig,
 	preview,
@@ -246,8 +247,14 @@ export default function promptToggleExtension(pi: ExtensionAPI) {
 			.pop() as { data?: { enabled?: string[] } } | undefined;
 
 		enabled.clear();
-		for (const id of last?.data?.enabled ?? []) {
-			if (findToggle(id)) enabled.add(id);
+		if (last) {
+			for (const id of last.data?.enabled ?? []) {
+				if (findToggle(id)) enabled.add(id);
+			}
+		} else {
+			for (const id of DEFAULT_ENABLED_IDS) {
+				if (findToggle(id)) enabled.add(id);
+			}
 		}
 		updateStatus(ctx);
 	});
