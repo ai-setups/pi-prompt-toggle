@@ -8,7 +8,7 @@ export interface Toggle {
 	instruction: string;
 }
 
-/** Shipped defaults. Any id redefined in a config file overrides the entry here. */
+/** Shipped toggles. Any id redefined in a config file overrides the entry here. */
 export const BUILTIN_TOGGLES: Toggle[] = [
 	{
 		id: "concise",
@@ -21,6 +21,9 @@ export const BUILTIN_TOGGLES: Toggle[] = [
 			"Do not modify any file. Read files and run commands freely, but propose changes instead of applying them.",
 	},
 ];
+
+/** IDs enabled by default when no saved state exists. */
+export const DEFAULT_ENABLED_IDS: ReadonlySet<string> = new Set(["concise", "no-change"]);
 
 /**
  * Parse one config file: a flat id -> instruction map.
